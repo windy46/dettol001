@@ -7,7 +7,8 @@ public class TestUtils {
         int[] array2 = {99, 88, 77, 66, 55, 44, 33, 22, 11,7,5,7,8,3,2,5,8,6,1,4,10};
         //printOut(array); //OPEN FOR #insert
         //insert(array); //OPEN FOR #insert
-        insert1(array2);
+        insert2(array2);
+        printOut(array2); //OPEN FOR #insert2
     }
 
     public static void insert(int[] source){
@@ -43,6 +44,22 @@ public class TestUtils {
             }
             array[j] = tmp;
             printOut(array);
+        }
+    }
+
+    public static void insert2(int[] array){
+       if(array == null || array.length == 0){
+           return;
+       }
+        for (int i = 1; i < array.length; i++) {
+            printOut(array);
+            int value = array[i];
+            int j = i;
+            while(j > 0 && array[j-1] > value){
+                array[j] = array[j-1];
+                j--;
+            }
+            array[j] = value;
         }
     }
 
