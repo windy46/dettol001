@@ -5,10 +5,13 @@ public class TestUtils {
     public static void main(String[] args) {
         int[] array = {99, 88, 77, 66, 55, 44, 33, 22, 11};
         int[] array2 = {99, 88, 77, 66, 55, 44, 33, 22, 11,7,5,7,8,3,2,5,8,6,1,4,10};
+        int[] array3 = {99, 88, 77, 66, 55, 44, 33, 22, 2,5,3,4,5,6,7,8,2,1,9,0};
         //printOut(array); //OPEN FOR #insert
         //insert(array); //OPEN FOR #insert
-        insert2(array2);
-        printOut(array2); //OPEN FOR #insert2
+        //insert2(array2); //OPEN FOR #insert2
+//        printOut(array2); //OPEN FOR #insert2
+        insert3(array3);
+        printOut(array3); //OPEN FOR #insert3
     }
 
     public static void insert(int[] source){
@@ -60,6 +63,22 @@ public class TestUtils {
                 j--;
             }
             array[j] = value;
+        }
+    }
+
+    public static void insert3(int[] source){
+        if(source == null || source.length == 0){
+            return;
+        }
+        for (int i = 1; i < source.length; i++) {
+            printOut(source);
+            int value = source[i];
+            int priotIndex = i - 1;
+            while(priotIndex >= 0 && source[priotIndex] > value){
+                source[priotIndex + 1] = source[priotIndex];
+                priotIndex--; //priotIndex后移一位再进行下一轮比较
+            }
+            source[priotIndex + 1] = value;//如果以上步骤进入while循环,则priotIndex+1为最后一次比较移动的位置,如果没进入while循环,则priotIndex为i
         }
     }
 
