@@ -10,7 +10,7 @@ public class TestUtils {
         //insert(array); //OPEN FOR #insert
         //insert2(array2); //OPEN FOR #insert2
 //        printOut(array2); //OPEN FOR #insert2
-        insert10(array3);
+        insert11(array3);
         printOut(array3); //OPEN FOR #insert3
     }
 
@@ -190,6 +190,26 @@ public class TestUtils {
                 array[j] = array[j - 1];
             }
             array[j] = value;
+        }
+    }
+
+    public static void insert11(int[] array){
+        if(array == null || array.length == 0){
+            return;
+        }
+        for(int i = 1; i < array.length; i++){
+            printOut(array);
+            int j = i-1;
+            int temp = array[i];
+            while(j>=0){
+                if(array[j] > temp){
+                    array[j + 1] = array[j];
+                }else{
+                    break;
+                }
+                j--;
+            }
+            array[j+1] = temp; //这一步很重要，应该是和交换排序的区别
         }
     }
 
