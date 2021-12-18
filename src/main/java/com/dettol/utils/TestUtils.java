@@ -10,7 +10,7 @@ public class TestUtils {
         //insert(array); //OPEN FOR #insert
         //insert2(array2); //OPEN FOR #insert2
 //        printOut(array2); //OPEN FOR #insert2
-        insert11(array3);
+        insert12(array3);
         printOut(array3); //OPEN FOR #insert3
     }
 
@@ -210,6 +210,28 @@ public class TestUtils {
                 j--;
             }
             array[j+1] = temp; //这一步很重要，应该是和交换排序的区别
+        }
+    }
+
+    public static void insert12(int[] array){
+        if(array == null || array.length == 0){
+            return;
+        }
+        for (int i = 1; i < array.length; i++) {
+            printOut(array);
+            int value1 = array[i]; //记录lastIndex array
+            int value2 = array[i];
+            int j;
+            for(j = i; j > 0 && array[j - 1] > array[i];j--){
+                if(j == i) {
+                    value1 = array[j - 1]; //保留lastIndex
+                }else{
+                    array[j] = array[j - 1]; //正常普通index向前一步
+                }
+            }
+            array[i] = value1;
+            array[j] = value2;
+            //TO DO: array[i]值不变直到找到原值合适位置,这算是插入排序吗?
         }
     }
 
