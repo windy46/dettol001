@@ -10,7 +10,7 @@ public class TestUtils {
         //insert(array); //OPEN FOR #insert
         //insert2(array2); //OPEN FOR #insert2
 //        printOut(array2); //OPEN FOR #insert2
-        insert12(array3);
+        insert13(array3);
         printOut(array3); //OPEN FOR #insert3
     }
 
@@ -232,6 +232,25 @@ public class TestUtils {
             array[i] = value1;
             array[j] = value2;
             //TO DO: array[i]值不变直到找到原值合适位置,这算是插入排序吗?
+        }
+    }
+
+    public static void insert13(int[] array){
+        if(array == null || array.length == 0){
+            return;
+        }
+        for (int i = 1; i < array.length; i++) {
+            printOut(array);
+            int value = array[i];
+            int j;
+            for(j = i; j > 0 ; j--){
+                if(array[j - 1] > value){
+                    array[j] = array[j - 1];
+                }else{
+                    break;
+                }
+            }
+            array[j] = value;
         }
     }
 
