@@ -10,7 +10,7 @@ public class TestUtils {
         //insert(array); //OPEN FOR #insert
         //insert2(array2); //OPEN FOR #insert2
 //        printOut(array2); //OPEN FOR #insert2
-        insert17(array3);
+        insert18(array3);
         printOut(array3); //OPEN FOR #insert3
     }
 
@@ -318,6 +318,23 @@ public class TestUtils {
                 }
             }
             array[j] = value;
+        }
+    }
+
+    public static void insert18(int[] source){
+        if(source == null || source.length == 0){
+            return;
+        }
+        for (int i = 1; i < source.length; i++) {
+            printOut(source);
+            int key = source[i];
+            int priorIndex = i - 1;
+            while(priorIndex >= 0 &&
+                    source[priorIndex] > key){
+                source[priorIndex + 1] = source[priorIndex];
+                priorIndex--;
+            }
+            source[priorIndex + 1] = key;
         }
     }
 
