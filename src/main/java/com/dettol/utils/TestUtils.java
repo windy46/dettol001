@@ -10,7 +10,7 @@ public class TestUtils {
         //insert(array); //OPEN FOR #insert
         //insert2(array2); //OPEN FOR #insert2
 //        printOut(array2); //OPEN FOR #insert2
-        insert19(array3);
+        insert20(array3);
         printOut(array3); //OPEN FOR #insert3
     }
 
@@ -350,6 +350,25 @@ public class TestUtils {
                 source[j] = source[j - 1];
             }
             source[j] = key;
+        }
+    }
+
+    public static void insert20(int[] source){
+        if(source == null || source.length == 0){
+            return;
+        }
+        for (int i = source.length - 2; i >= 0; i--) {
+            printOut(source);
+            int value  = source[i];
+            int j = i + 1;
+            for (; j <= source.length - 1; j++) {
+                if(source[j] < value){
+                    source[j - 1] = source[j];
+                }else{
+                    break; //如果for循环不比较参数那么条件判断是必须要加上break，阻止j++
+                }
+            }
+            source[j - 1] = value; //此时使用source[j]就会容易出现IndexOutOfRangeException..
         }
     }
 
