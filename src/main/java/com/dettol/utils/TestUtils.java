@@ -231,7 +231,7 @@ public class TestUtils {
             }
             array[i] = value1;
             array[j] = value2;
-            //TO DO: array[i]值不变直到找到原值合适位置,这算是插入排序吗?
+            //TODO: array[i]值不变直到找到原值合适位置,这算是插入排序吗?
         }
     }
 
