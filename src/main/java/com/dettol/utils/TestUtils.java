@@ -10,7 +10,7 @@ public class TestUtils {
         //insert(array); //OPEN FOR #insert
         //insert2(array2); //OPEN FOR #insert2
 //        printOut(array2); //OPEN FOR #insert2
-        insert20(array3);
+        insert21(array3);
         printOut(array3); //OPEN FOR #insert3
     }
 
@@ -369,6 +369,21 @@ public class TestUtils {
                 }
             }
             source[j - 1] = value; //此时使用source[j]就会容易出现IndexOutOfRangeException..
+        }
+    }
+
+    public static void insert21(int[] source){
+        if(source == null || source.length == 0){
+            return;
+        }
+        for (int i = 1; i < source.length; i++) {
+            printOut(source);
+            int key = source[i];
+            int j = i - 1;
+            for (; j >= 0 && source[j] > key ; j--) {
+                source[j + 1] = source[j];
+            }
+            source[j + 1] = key;
         }
     }
 
