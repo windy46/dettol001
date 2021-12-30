@@ -10,8 +10,8 @@ public class TestUtils {
         //insert(array); //OPEN FOR #insert
         //insert2(array2); //OPEN FOR #insert2
 //        printOut(array2); //OPEN FOR #insert2
-        insert23(array);
-        printOut(array); //OPEN FOR #insert3
+        insert24(array3);
+        printOut(array3); //OPEN FOR #insert3
     }
 
     public static void insert(int[] source){
@@ -421,6 +421,21 @@ public class TestUtils {
             if(isSwap) {
                 array[j + 1] = tmp;
             }
+        }
+    }
+
+    public static void insert24(int[] array){
+        if(array == null || array.length == 0){
+            return;
+        }
+        for (int i = 1; i < array.length; i++) {
+            printOut(array);
+            int tmp = array[i];
+            int j ;
+            for ( j = i - 1;j >= 0 && array[j] > tmp; j--) {
+                array[j + 1] = array[j];
+            }
+            array[j + 1] = tmp;
         }
     }
 
