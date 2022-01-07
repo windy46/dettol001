@@ -10,7 +10,7 @@ public class TestUtils {
         //insert(array); //OPEN FOR #insert
         //insert2(array2); //OPEN FOR #insert2
 //        printOut(array2); //OPEN FOR #insert2
-        insert31(array3);
+        insert32(array3);
         printOut(array3); //OPEN FOR #insert3
     }
 
@@ -573,6 +573,25 @@ public class TestUtils {
             }
             i++;
         }while(i < array.length);
+    }
+
+    public static void insert32(int[] array){
+        if(array == null){
+            return;
+        }
+        for (int i = 1; i < array.length; i++) {
+            int tmp = array[i];
+            int j = i - 1;
+            boolean isSwap = false;
+            printOut(array);
+            for(; j >= 0 && array[j] > tmp; j--){ //判断 '=' 很重要
+                array[j + 1] = array[j];
+                isSwap = true;
+            }
+            if(isSwap) {
+                array[j + 1] = tmp;
+            }
+        }
     }
 
     private static void printOut(int[] array) {
