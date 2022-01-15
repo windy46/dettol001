@@ -10,7 +10,7 @@ public class TestUtils {
         //insert(array); //OPEN FOR #insert
         //insert2(array2); //OPEN FOR #insert2
 //        printOut(array2); //OPEN FOR #insert2
-        insert39(array3);
+        insert40(array3);
         printOut(array3); //OPEN FOR #insert3
     }
 
@@ -713,6 +713,20 @@ public class TestUtils {
             if(isSwap) {
                 array[i] = tmp;
                 array[j + 1] = value;
+            }
+        }
+    }
+
+    public static void insert40(int[] array){
+        if(array == null){
+            return;
+        }
+        for (int i = 0; i < array.length; i++) {
+            int value = array[i];
+            printOut(array);
+            for (int j = i; j > 0 && array[j - 1] > array[j] ; j--) { //此处array[j]作为value 一个一个与后一个比较位置插入
+                array[j] = array[j - 1];
+                array[j - 1] = value; //这里一定要是value(或者传载value的array[j])
             }
         }
     }
