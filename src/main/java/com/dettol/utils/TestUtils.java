@@ -10,7 +10,7 @@ public class TestUtils {
         //insert(array); //OPEN FOR #insert
         //insert2(array2); //OPEN FOR #insert2
 //        printOut(array2); //OPEN FOR #insert2
-        insert40(array3);
+        insert41(array3);
         printOut(array3); //OPEN FOR #insert3
     }
 
@@ -728,6 +728,24 @@ public class TestUtils {
                 array[j] = array[j - 1];
                 array[j - 1] = value; //这里一定要是value(或者传载value的array[j])
             }
+        }
+    }
+
+    public static void insert41(int[] array){
+        if(array == null){
+            return;
+        }
+        int i = 1;
+        while(i < array.length){
+            int key = i - 1;
+            printOut(array);
+            int temp = array[i];
+            while(key >= 0 && array[key] > array[key + 1]){
+                array[key + 1] = array[key];
+                array[key] = temp;
+                key--;
+            }
+            i++;
         }
     }
 
