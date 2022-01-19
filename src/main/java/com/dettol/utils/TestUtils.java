@@ -10,7 +10,7 @@ public class TestUtils {
         //insert(array); //OPEN FOR #insert
         //insert2(array2); //OPEN FOR #insert2
 //        printOut(array2); //OPEN FOR #insert2
-        insert43(array3);
+        insert44(array3);
         printOut(array3); //OPEN FOR #insert3
     }
 
@@ -782,6 +782,26 @@ public class TestUtils {
             }
             if(j != i) {
                 array[j] = key;
+            }
+            printOut(array); //completed
+        }
+    }
+
+    public static void insert44(int[] array){
+        if(array == null){
+            return;
+        }
+        for (int i = 1; i < array.length; i++) {
+            int j = i - 1;
+            int value = array[i];
+            boolean isSwap = false;
+            for (;j >= 0 && array[j] > value;) {
+                array[j + 1] = array[j--]; //省代码行写法,可读性很差
+                isSwap = true;
+                //j--;
+            }
+            if(isSwap) {
+                array[j + 1] = value;
             }
             printOut(array); //completed
         }
