@@ -10,7 +10,7 @@ public class TestUtils {
         //insert(array); //OPEN FOR #insert
         //insert2(array2); //OPEN FOR #insert2
 //        printOut(array2); //OPEN FOR #insert2
-        insert45(array3);
+        insert46(array3);
         printOut(array3); //OPEN FOR #insert3
     }
 
@@ -22,7 +22,7 @@ public class TestUtils {
             int j = i;
             int tmp = source[i];
             boolean needSwap = false;
-            while(j > 0 && source[j - 1] > tmp){
+            while(j > 0 && source[j - 1] > tmp){                                                                                                                                                                          
                 needSwap = true;
                 source[j] = source[j - 1];
                 j--;
@@ -519,7 +519,7 @@ public class TestUtils {
         }
         for (int i = 0; i < source.length; i++) {
             int value = source[i];
-            int j = i;
+            int j;
             printOut(source);
             for (j = i; j > 0 ; j--) {
                 if(source[j - 1] > value){
@@ -795,7 +795,7 @@ public class TestUtils {
             int j = i - 1;
             int value = array[i];
             boolean isSwap = false;
-            for (;j >= 0 && array[j] > value;) {
+            while (j >= 0 && array[j] > value) {
                 array[j + 1] = array[j--]; //省代码行写法,可读性很差
                 isSwap = true;
                 //j--;
@@ -821,6 +821,26 @@ public class TestUtils {
                 source[j] = source[j - 1];
             }
             source[j] = key;
+        }
+    }
+
+    public static void insert46(int[] source){
+        if(source == null || source.length == 0){
+            return;
+        }
+        for (int i = 0; i < source.length; i++) {
+            int key = i;
+            int value = source[i];
+            for (int j = i; j > 0 && source[j - 1] > value ; j--) { // 如果一直比较的是source[j], 不是value,这里要交换,否则容易成为冒泡排序,还是劣质版那种
+                source[j] = source[j - 1];
+                key = j - 1;
+            }
+           if(key < i) {
+               source[key] = value;
+           }
+           if(i < source.length - 1) {
+               printOut(source); // 使用value比较会多遍历第一行
+           }
         }
     }
 
