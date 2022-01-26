@@ -10,7 +10,7 @@ public class TestUtils {
         //insert(array); //OPEN FOR #insert
         //insert2(array2); //OPEN FOR #insert2
 //        printOut(array2); //OPEN FOR #insert2
-        insert51(array);
+        insert51(array3);
         //printOut(array3); //OPEN FOR #insert3
     }
 
@@ -930,7 +930,7 @@ public class TestUtils {
             int value = array[i];
             int j;
             for (j = i; j > 0 ; j--) {
-                if(array[j - 1] > array[j]){
+                if(array[j - 1] > value){ // 注意:与array[j]仅出现于即时交换的情况，最好都用value代替，这样就不容易漏看
                     array[j] = array[j - 1];
                 }else{
                     break;
