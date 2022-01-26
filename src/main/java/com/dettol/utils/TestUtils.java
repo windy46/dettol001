@@ -10,7 +10,7 @@ public class TestUtils {
         //insert(array); //OPEN FOR #insert
         //insert2(array2); //OPEN FOR #insert2
 //        printOut(array2); //OPEN FOR #insert2
-        insert50(array3);
+        insert51(array);
         //printOut(array3); //OPEN FOR #insert3
     }
 
@@ -886,11 +886,43 @@ public class TestUtils {
                 source[j - 1] = source[j];
                 source[j] = temp;
             }
+            printOut(source);//completed
+        }
+    }
+
+    public static void insert50(int[] source){
+        if(source == null){
+            return;
+        }
+        for (int i = 2; i < source.length - 2; i++) { //假设i=2不能变, i < source.length - 2不能变
+            int j = i - 2;
+            for (; j > 0 && source[j - 1] > source[j] ; j--) {
+                //if(i == 2 ){
+                //    printOut(source);
+                // }
+                int value = source[j - 1];
+                source[j - 1] = source[j];
+                source[j] = value;
+                if(i >= source.length - 3){
+                    int key = 0;
+                    while(key < 4) { //因为i前后总共差了4次
+                        for (int  k = i - 1; k > 0 && source[k - 1] > source[k]; k--) {
+                            int tmp = source[k - 1];
+                            source[k - 1] = source[k];
+                            source[k] = tmp;
+                        }
+                        printOut(source);
+                        key++;
+                        i++;
+                    }
+                    return; //completed
+                }
+            }
             printOut(source);
         }
     }
 
-    public static void insert50(int[] array){
+    public static void insert51(int[] array){
         if(array == null){
             return;
         }
