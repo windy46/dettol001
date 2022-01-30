@@ -10,7 +10,7 @@ public class TestUtils {
         //insert(array); //OPEN FOR #insert
         //insert2(array2); //OPEN FOR #insert2
 //        printOut(array2); //OPEN FOR #insert2
-        insert54(array3);
+        insert55(array3);
         printOut(array3); //OPEN FOR #insert3
     }
 
@@ -985,6 +985,22 @@ public class TestUtils {
                 j--;
             }
             array[j] = value;
+        }
+    }
+
+    private static void insert55(int[] array){
+        if(array == null){
+            return;
+        }
+        for (int i = 1; i < array.length; i++) {
+            int tmp = array[i];
+            printOut(array);
+            int j = i - 1;
+            while (j >= 0 && array[j] > tmp) {
+                array[j + 1] = array[j];
+                j--;
+            }
+            array[j + 1] = tmp;
         }
     }
     private static void printOut(int[] array) {
