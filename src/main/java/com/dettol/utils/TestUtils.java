@@ -10,7 +10,7 @@ public class TestUtils {
         //insert(array); //OPEN FOR #insert
         //insert2(array2); //OPEN FOR #insert2
 //        printOut(array2); //OPEN FOR #insert2
-        insert65(array3);
+        insert66(array3);
         //printOut(array3); //OPEN FOR #insert3
     }
 
@@ -1157,6 +1157,23 @@ public class TestUtils {
                 }
                 if (isSwap){
                     array[j + 1] = tmp;
+                }
+                printOut(array);
+            }
+        }
+    }
+    
+    private static void insert66(int[] array){
+        if (array != null) {
+            for (int i = 0; i < array.length; i++) {
+                for (int j = i; j > 0; j--) {
+                    if(array[j - 1] > array[j]){
+                        int tmp = array[j];
+                        array[j] = array[j - 1];
+                        array[j - 1] = tmp;
+                    }else{
+                        break;
+                    }
                 }
                 printOut(array);
             }
