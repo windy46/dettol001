@@ -10,7 +10,8 @@ public class TestUtils {
         //insert(array); //OPEN FOR #insert
         //insert2(array2); //OPEN FOR #insert2
 //        printOut(array2); //OPEN FOR #insert2
-        insert68(array3);
+        printOut(array3); //OPEN FOR #insert3
+        insert69(array3);
         printOut(array3); //OPEN FOR #insert3
     }
 
@@ -1206,6 +1207,24 @@ public class TestUtils {
                     j--;
                 }
                 array[j + 1] = value;
+            }
+        }
+    }
+
+    private static void insert69(int[] array){
+        if(array != null){
+            for (int i = 2; i < array.length ; i++) {
+                if(i <= 2 && array[0] > array[1]){
+                    int tmp = array[1];
+                    array[1] = array[0];
+                    array[0] = tmp;
+                }
+                printOut(array);
+                for (int j = i - 1; j >= 0 && array[j] > array[j + 1] ; j--) {
+                    int tmp = array[j + 1];
+                    array[j + 1] = array[j];
+                    array[j] = tmp;
+                }
             }
         }
     }
