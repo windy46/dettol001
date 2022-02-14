@@ -11,8 +11,8 @@ public class TestUtils {
         //insert2(array2); //OPEN FOR #insert2
 //        printOut(array2); //OPEN FOR #insert2
         printOut(array3); //OPEN FOR #insert3
-        insert69(array3);
-        printOut(array3); //OPEN FOR #insert3
+        insert70(array3);
+//        printOut(array3); //OPEN FOR #insert3
     }
 
     public static void insert(int[] source){
@@ -1224,6 +1224,24 @@ public class TestUtils {
                     int tmp = array[j + 1];
                     array[j + 1] = array[j];
                     array[j] = tmp;
+                }
+            }
+        }
+    }
+
+    private static void insert70(int[] array){
+        if(array != null && array.length != 0){
+            for (int i = 1; i < array.length; i++) {
+                int value = array[i];
+                boolean isSwap = false;
+                int j;
+                for (j = i - 1; j >= 0 && array[j] > value ; j--) {
+                    array[j + 1] = array[j];
+                    isSwap = true;
+                }
+                if(isSwap){
+                    array[j + 1] = value;
+                    printOut(array);
                 }
             }
         }
