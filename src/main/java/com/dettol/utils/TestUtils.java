@@ -10,7 +10,7 @@ public class TestUtils {
         //insert(array); //OPEN FOR #insert
         //insert2(array2); //OPEN FOR #insert2
 //        printOut(array3); //OPEN FOR #insert2
-        insert82(array3);
+        insert83(array3);
 //        printOut(array3); //OPEN FOR #insert3
 //        printOut(array3); //OPEN FOR #insert3
     }
@@ -1453,6 +1453,23 @@ public class TestUtils {
                 }
                 array[j + 1] = value;
                 printOut(array);
+            }
+        }
+    }
+
+    private static void insert83(int[] array){
+        if(array != null){
+            int i = 0, j;
+            while(i < array.length){
+                int value = array[i];
+                j = i - 1; //j初始值随时变动，不能放循环外层，且其值至少有少于i的机会
+                while(j >= 0 && array[j] > value){
+                    array[j + 1] = array[j];
+                    j--;
+                }
+                array[j + 1] = value;
+                printOut(array);
+                i++;
             }
         }
     }
