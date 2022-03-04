@@ -1531,6 +1531,21 @@ public class TestUtils {
         }
     }
 
+    private static void insert88(int[] array){
+        if(array != null){
+            for (int i = 0; i < array.length; i++) {
+              int value = array[i];
+              int j = i - 1;
+              while(j > 0 && array[j] > value){
+                  array[j + 1] = array[j];
+                  j--;
+              }
+              array[j + 1] = value;
+              printOut(array);
+            }
+        }
+    }
+
 
     private static void printOut(int[] array) {
         if(array == null){
