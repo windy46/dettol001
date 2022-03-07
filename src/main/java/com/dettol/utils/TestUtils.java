@@ -9,8 +9,8 @@ public class TestUtils {
         //printOut(array); //OPEN FOR #insert
         //insert(array); //OPEN FOR #insert
         //insert2(array2); //OPEN FOR #insert2
-//        printOut(array3); //OPEN FOR #insert2
-        insert90(array3);
+        printOut(array3); //OPEN FOR #insert2
+        insert91(array3);
 //        printOut(array3); //OPEN FOR #insert3
 //        printOut(array3); //OPEN FOR #insert3
     }
@@ -1568,6 +1568,22 @@ public class TestUtils {
                 }
                 printOut(array);
             }
+        }
+    }
+
+    /**
+     * 9行以内写出inserSort, 嘿嘿
+     * @param array
+     */
+    private static void insert91(int[] array){
+        int i = 0, j;
+        while(array != null && ++i < array.length){
+            for(j = i;j > 0 && array[j - 1] > array[j];j--){
+                int value = array[j];
+                array[j] = array[j - 1];
+                array[j - 1] = value;
+            }
+            printOut(array);
         }
     }
 
