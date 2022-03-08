@@ -10,7 +10,7 @@ public class TestUtils {
         //insert(array); //OPEN FOR #insert
         //insert2(array2); //OPEN FOR #insert2
         printOut(array3); //OPEN FOR #insert2
-        insert91(array3);
+        insert92(array3);
 //        printOut(array3); //OPEN FOR #insert3
 //        printOut(array3); //OPEN FOR #insert3
     }
@@ -1584,6 +1584,20 @@ public class TestUtils {
                 array[j - 1] = value;
             }
             printOut(array);
+        }
+    }
+
+    private static void insert92(int[] array){
+        if(array != null){
+            for (int i = 1; i < array.length; i++) {
+                int j = i - 1, value = array[i];
+                while(j >= 0 && array[j] > value){ //使用j比较value,如果array[j]>value,那么要移动的应该是array[j]而不是array[j + 1]
+                    array[j + 1] = array[j];
+                    j--;
+                }
+                array[j + 1] = j + 1 == i ? array[j + 1] : value;
+                printOut(array);
+            }
         }
     }
 
