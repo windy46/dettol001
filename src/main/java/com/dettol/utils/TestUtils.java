@@ -10,8 +10,8 @@ public class TestUtils {
         //insert(array); //OPEN FOR #insert
         //insert2(array2); //OPEN FOR #insert2
 //        printOut(array3); //OPEN FOR #insert2
-        insert98(array3);
-        printOut(array3); //OPEN FOR #insert3
+        insert99(array3);
+//        printOut(array3); //OPEN FOR #insert3
 //        printOut(array3); //OPEN FOR #insert3
     }
 
@@ -1690,6 +1690,20 @@ public class TestUtils {
                 if(needSwap) {
                     array[j + 1] = value;
                 }
+            }
+        }
+    }
+
+    private static void insert99(int[] array){
+        if(array != null) {
+            int i = 0, j, value;
+            while((j = i++) < array.length){ //这里的i代表比较进度
+                while(j > 0 && array[j - 1] > array[j]){
+                    value = array[j];
+                    array[j] = array[j - 1];
+                    array[--j] = value;
+                }
+                printOut(array);
             }
         }
     }
