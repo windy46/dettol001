@@ -2,26 +2,16 @@ package com.dettol.algorithms;
 
 /**
  * @Author: Winkey
- * @date: 2021/12/6 17:00
+ * @date: 2022/3/18 22:39
  */
 public class InsertSort {
 
     public static void insert(int[] source){
-        if(source == null || source.length == 0){
-            return;
-        }
-        for(int i = 1; i < source.length; i++){
-            int j = i;
-            int tmp = source[i];
-            boolean needSwap = false;
-            while(j > 0 && source[j - 1] > tmp){
-                needSwap = true;
+        for (int i = 0, value, j ; source != null && i < source.length; i++) {
+            for (j = i, value = source[i]; j > 0 && source[j - 1] > value; j--) {
                 source[j] = source[j - 1];
-                j--;
             }
-            if(needSwap){
-                source[j] = tmp;
-            }
+            source[j] = value;
         }
     }
 
