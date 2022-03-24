@@ -9,8 +9,8 @@ public class TestUtils {
         //printOut(array); //OPEN FOR #insert
         //insert(array); //OPEN FOR #insert
         //insert2(array2); //OPEN FOR #insert2
-//        printOut(array3); //OPEN FOR #insert2
-        insert107(array3);
+        printOut(array3); //OPEN FOR #insert2
+        insert108(array3);
 //        printOut(array3); //OPEN FOR #insert3
 //        printOut(array3); //OPEN FOR #insert3
     }
@@ -1814,6 +1814,19 @@ public class TestUtils {
                 }
                 printOut(array);
             }
+        }
+    }
+
+    private static void insert108(int[] array){
+        int i = 0, j, value;
+        while(array != null && (j = i++) < array.length - 1){
+            value = array[i];
+            while(!(j < 0) && array[j] > value){
+                array[j + 1] = array[j];
+                j--;
+            }
+            array[j + 1] = value;
+            printOut(array);
         }
     }
 
